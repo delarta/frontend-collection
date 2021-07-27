@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@200;300;400;500;600;700;800&display=swap");
+
+/* font-family: 'DM Serif Display', serif;
+font-family: 'Inter', sans-serif; */
+
+:root {
+  --border: 1px solid black;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #fafafa;
+}
+
+nav {
+  height: 70px;
+  border-bottom: var(--border);
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+nav .logo {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  letter-spacing: 10px;
+  border-right: var(--border);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav .menus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+nav .menus ul.left-menu {
+  display: flex;
+  list-style: none;
+}
+
+nav .menus ul.left-menu li {
+  margin-right: 16px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 170px 1fr 1fr;
+  grid-template-rows: 50vh 50vh;
+  grid-template-areas:
+    "empty profile picture"
+    "contact photos picture";
+}
+
+.empty {
+  grid-area: empty;
+  border-right: var(--border);
+  border-bottom: var(--border);
+}
+
+.profile {
+  grid-area: profile;
+  border-bottom: var(--border);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.profile-name {
+  padding: 1rem;
+  background: black;
+  width: 75%;
+  height: 50%;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-family: "DM Serif Display", serif;
+}
+
+.profile-name span {
+  display: block;
+  font-size: clamp(1rem, 15vw, 2.5rem);
+}
+
+.profile-photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.hero-image {
+  grid-area: picture;
+  background: url("./img/Lena-Hoschek-Men-Work-07.jpg") no-repeat;
+  background-size: cover;
+}
+
+.contact {
+  grid-area: contact;
+  border-right: var(--border);
+}
+
+.photos-container {
+  grid-area: photos;
+  position: relative;
+}
+
+.photos {
+  position: absolute;
+  width: fit-content;
+  display: flex;
+  left: 0;
+  bottom: 24px;
+}
+
+.photos img {
+  width: clamp(100px, 12vw, 250px);
+  margin: 0;
+}
+
+.photos button {
+  all: unset;
+  color: white;
+  font-size: inherit;
+  height: 80px;
+  align-self: flex-end;
+  background: rgba(47, 47, 47, 0.5);
+  width: clamp(150px, 12vw, 250px);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photos button img{
+  width: 30px;
+  margin-left: 1rem;
+  filter: invert(100%);
+}
+
+.contact {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+}
+
+.contact .icons {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact .icons img {
+  width: 30px;
+  margin: 8px;
+}
+
+.contact-title {
+  display: inline-block;
+  font-family: "DM Serif Display", serif;
+  position: absolute;
+  left: 12px;
+  bottom: 90px;
+  width: 277px;
+  font-size: 3.5rem;
+  transform-origin: center;
+  transform: rotate(270deg) translatex(50%);
+  opacity: 0.2;
+}
+
+.right-menu {
+  color: white;
+}
+
+.hamburger-menu{
+  display: none;
+}
+
+.hamburger-menu img {
+  width: 28px;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh 40vh;
+    grid-template-areas:
+      "profile"
+      "photos";
+  }
+
+  .contact {
+    display: none;
+  }
+
+  nav{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  nav .menus{
+    display: none
+  }
+
+  .hamburger-menu{
+    display: block;
+    height: 100%;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-name{
+    width: 100%;
+    height: 50%;
+  }
+
+  .photos{
+    position: static;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .photos img{
+    width: 100%;
+  }
+
+  .photos button{
+    background-color: black;
+    width: 100%;
+    grid-column: 1/3;
+    backdrop-filter: none;
+  }
+
+}
